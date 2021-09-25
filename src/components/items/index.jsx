@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useMemo, useState } from "react";
 import { useGlobalFilter, useSortBy, useTable } from "react-table";
 import tw from "twin.macro";
-// import { GlobalFilter } from "./globalFilter";
+import { GlobalFilter } from "./globalFilter";
 
 const Table = tw.table`
   table-fixed
@@ -80,6 +80,7 @@ export function Products(props) {
 		[]
 	);
 
+	// memorize data to save having to recompute unchanged data when rerendering
 	const productsData = useMemo(() => [...products], [products]);
 
 	const productsColumns = useMemo(
@@ -122,7 +123,7 @@ export function Products(props) {
 			columns: productsColumns,
 			data: productsData,
 		},
-		// useGlobalFilter,
+		useGlobalFilter,
 		tableHooks,
 		useSortBy
 	);
@@ -146,11 +147,11 @@ export function Products(props) {
 
 	return (
 		<>
-			{/* <GlobalFilter
-        preGlobalFilteredRows={preGlobalFilteredRows}
-        setGlobalFilter={setGlobalFilter}
-        globalFilter={state.globalFilter}
-      /> */}
+			<GlobalFilter
+				preGlobalFilteredRows={preGlobalFilteredRows}
+				setGlobalFilter={setGlobalFilter}
+				globalFilter={state.globalFilter}
+			/>
 			<Table {...getTableProps()}>
 				<TableHead>
 					{headerGroups.map((headerGroup) => (
