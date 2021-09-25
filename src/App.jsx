@@ -3,7 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 
 import tw from "twin.macro";
-// import { Products } from "./components/products";
+import { Products } from "./components/items";
 
 const AppContainer = tw.div`
   w-full
@@ -27,7 +27,7 @@ function App() {
 	return (
 		<AppContainer>
 			<Title>React Tables</Title>
-			{/* <Products /> */}
+			<Products />
 		</AppContainer>
 	);
 }
