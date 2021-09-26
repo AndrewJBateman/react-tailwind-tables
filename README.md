@@ -34,7 +34,7 @@
 
 ## :camera: Screenshots
 
-![Example screenshot](./imgs/table.png)
+![Example screenshot](./imgs/react-table.png)
 
 ## :signal_strength: Technologies
 
