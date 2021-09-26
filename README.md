@@ -40,7 +40,7 @@
 
 * [React v17](https://reactjs.org/) Javascript library.
 * [Tailwind v2](https://tailwindcss.com/) utility-first CSS framework
-* [twin.macro](https://classic.yarnpkg.com/en/package/twin.macro) to mix Tailwind with css-in-js
+* [twin.macro v2](https://classic.yarnpkg.com/en/package/twin.macro) to mix Tailwind with css-in-js
 * [@craco/craco v6](https://yarnpkg.com/package/@craco/craco) Create React App Configuration Override, an easy and comprehensible configuration layer for create-react-app. Required because Create React App doesn’t let you override the PostCSS configuration natively
 * [PostCSS v8](https://postcss.org/) tool for transforming CSS with JavaScript
 * [react-table v7](https://yarnpkg.com/package/react-table) Hooks for building lightweight, fast and extendable datagrids for React
@@ -77,7 +77,7 @@
 
 ## :clipboard: Status & To-Do List
 
-* Status: Complete
+* Status: Working
 * To-Do: Change REST API and try different tw styles. Add testing
 
 ## :clap: Inspiration
