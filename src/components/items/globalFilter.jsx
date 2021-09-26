@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useAsyncDebounce } from "react-table";
 import tw from "twin.macro";
 
+// define tailwind styles as constants
 const SearchContainer = tw.div`
   mb-6
   mt-6
@@ -19,12 +20,13 @@ const Input = tw.input`
   h-8
   border-2
   border-solid
-  border-green-500
+  border-blue-500
   outline-none
   p-4
   rounded-lg
 `;
 
+// function to filter rows on user input
 // input props: rows already filtered
 export function GlobalFilter({
 	preGlobalFilteredRows,
@@ -37,6 +39,7 @@ export function GlobalFilter({
 		setGlobalFilter(value || undefined);
 	}, 300);
 
+	// search container value -> setValue
 	return (
 		<SearchContainer>
 			<SearchText>Search:</SearchText>

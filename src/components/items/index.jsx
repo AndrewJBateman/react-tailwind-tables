@@ -4,6 +4,7 @@ import { useGlobalFilter, useSortBy, useTable } from "react-table";
 import tw from "twin.macro";
 import { GlobalFilter } from "./globalFilter";
 
+// define tailwind styles as constants
 const Table = tw.table`
   table-fixed
   text-base
@@ -46,6 +47,7 @@ const Button = tw.button`
   transition-colors
 `;
 
+// function to fetch fake products REST API data
 export function Products(props) {
 	const [products, setProducts] = useState([]);
 
@@ -56,12 +58,11 @@ export function Products(props) {
 
 		if (response) {
 			const products = response.data;
-
-			console.log("Products: ", products);
 			setProducts(products);
 		}
 	};
 
+	// eslint-disable-next-line no-unused-vars
 	const columns = useMemo(
 		() => [
 			{
@@ -83,6 +84,7 @@ export function Products(props) {
 	// memorize data to save having to recompute unchanged data when rerendering
 	const productsData = useMemo(() => [...products], [products]);
 
+	// define product columns
 	const productsColumns = useMemo(
 		() =>
 			products[0]
@@ -103,6 +105,7 @@ export function Products(props) {
 		[products]
 	);
 
+	// define table using spread operator and add edit column
 	const tableHooks = (hooks) => {
 		hooks.visibleColumns.push((columns) => [
 			...columns,
@@ -118,6 +121,8 @@ export function Products(props) {
 		]);
 	};
 
+	// create table using react-table useTable root hoot
+	// requires memoized columns and data values + other hooks
 	const tableInstance = useTable(
 		{
 			columns: productsColumns,
@@ -143,8 +148,10 @@ export function Products(props) {
 		fetchProducts();
 	}, []);
 
+	// make table row colours alternate light/dark blue
 	const isEven = (idx) => idx % 2 === 0;
 
+	// show filtered table rows
 	return (
 		<>
 			<GlobalFilter
